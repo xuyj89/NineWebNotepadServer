@@ -61,13 +61,9 @@ export default {
   },
   methods: {
     setPassword() {
-      fetch(this.$store.state.config.baseUrl + "/api/user/havePassword")
-        .then((response)=>{
-          return response.json();
-        })
-        .then((myJson)=>{
-          console.log(myJson);
-        });
+      this.$store.state.netUtils.get(this,"/user/havePassword",(result)=>{
+        console.log(result);
+      });
     },
   },
   data() {
