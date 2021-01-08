@@ -19,8 +19,18 @@ public class UserController {
         return userService.havePassword();
     }
 
-    @RequestMapping(value = "/getUser",method = RequestMethod.GET)
-    public Result<User> getUser(String password){
-        return userService.getUser();
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public Result<String> register(String password){
+        return userService.register(password);
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public Result<String> login(String password){
+        return userService.login(password);
+    }
+
+    @RequestMapping(value = "/changePassword",method = RequestMethod.POST)
+    public Result<String> changePassword(String oldPassword,String newPassword){
+        return userService.changePassword(oldPassword, newPassword);
     }
 }

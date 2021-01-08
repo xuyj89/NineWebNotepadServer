@@ -6,5 +6,19 @@
     <select id="list" resultType="top.muyan.ninewebnotepad.model.db.User">
         select * from user;
     </select>
+    <select id="listByPassword" resultType="top.muyan.ninewebnotepad.model.db.User">
+        select * from user where password=#{password};
+    </select>
+    <insert id="add">
+        INSERT INTO user (id,password,token,update_time)
+        VALUES (#{user.id},#{user.password},#{user.token},#{user.update_time});
+    </insert>
+    <update id="update">
+        update user set
+        password=#{user.password},
+        token=#{user.token},
+        update_time=#{user.update_time}
+        where id=#{user.id};
+    </update>
 </mapper>
  

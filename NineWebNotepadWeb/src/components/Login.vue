@@ -1,4 +1,22 @@
 <template>
+  <el-dialog title="注册" v-model="dialogRegisterVisible">
+    <el-row>
+      <el-col :span="4"><span>密码：</span></el-col>
+      <el-col :span="20">
+        <el-input
+          v-model="registerPassword"
+          placeholder="请输入密码"
+          show-password
+        ></el-input
+      ></el-col>
+    </el-row>
+    <template #footer>
+      <el-button type="success" v-on:click="registerClicked">注册</el-button>
+    </template>
+  </el-dialog>
+  <el-dialog title="修改密码" v-model="dialogChangePasswordVisible">
+    <template #footer> </template>
+  </el-dialog>
   <div class="login_border">
     <h1 class="login_title">9号Web记事本</h1>
     <hr />
@@ -54,6 +72,10 @@
 </style>
 
 <script>
+import { ElMessage } from 'element-plus'
+import NetUtils from "../utils/netUtils";
+import md5 from 'js-md5'
+
 export default {
   name: "Login",
   props: {
@@ -61,14 +83,39 @@ export default {
   },
   methods: {
     setPassword() {
-      this.$store.state.netUtils.get(this,"/user/havePassword",(result)=>{
-        console.log(result);
+      NetUtils.get(this, "/user/havePassword", (result) => {
+        if (result.code == 0) {
+          if (result.data == 1) {
+            //已经注册过
+            this.dialogChangePasswordVisible = true;
+          } else {
+            //没有注册过
+            this.dialogRegisterVisible = true;
+          }
+        } else {
+          ElMessage(result.error);
+        }
       });
     },
+    registerClicked(){
+      console.log("点击注册");
+      let passwordMd5 = md5(this.registerPassword);
+      NetUtils.post(this,"/user/register?password="+passwordMd5,(result)=>{
+        if (result.code == 0) {
+          let token = result.data;
+          ElMessage("注册成功，即将进入系统主页");
+        } else {
+          ElMessage(result.error);
+        }
+      });
+    }
   },
   data() {
     return {
       password: "",
+      dialogRegisterVisible: false,
+      dialogChangePasswordVisible: false,
+      registerPassword:""
     };
   },
 };
