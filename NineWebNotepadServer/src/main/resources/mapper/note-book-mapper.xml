@@ -3,6 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="top.muyan.ninewebnotepad.mapper.NoteBookMapper">
+    <select id="list" resultType="top.muyan.ninewebnotepad.model.db.NoteBook">
+        select * from note_book;
+    </select>
 
+    <select id="listByName" resultType="top.muyan.ninewebnotepad.model.db.NoteBook">
+        select * from note_book where name=#{name};
+    </select>
+
+    <insert id="add">
+        insert into note_book(id,name,order_no) values(#{noteBook.id},#{noteBook.name},#{noteBook.orderNo})
+    </insert>
+
+    <update id="update">
+        update note_book set
+        name=#{noteBook.name},
+        order_no=#{noteBook.orderNo}
+        where id=#{noteBook.id};
+    </update>
+
+    <delete id="delete">
+        delete from note_book where id=#{id}
+    </delete>
 </mapper>
  

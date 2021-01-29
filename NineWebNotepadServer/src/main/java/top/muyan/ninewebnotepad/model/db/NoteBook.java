@@ -3,7 +3,7 @@ package top.muyan.ninewebnotepad.model.db;
 public class NoteBook {
     private String id;
     private String name;
-    private String orderNo;
+    private int orderNo;
 
     public String getId() {
         return id;
@@ -21,11 +21,11 @@ public class NoteBook {
         this.name = name;
     }
 
-    public String getOrderNo() {
+    public int getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(String orderNo) {
+    public void setOrderNo(int orderNo) {
         this.orderNo = orderNo;
     }
 }

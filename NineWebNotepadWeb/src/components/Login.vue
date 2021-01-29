@@ -4,24 +4,14 @@
     <el-row type="flex" align="middle">
       <el-col :span="4"><span>密码：</span></el-col>
       <el-col :span="20">
-        <el-input
-            v-model="registerPassword"
-            placeholder="请输入密码"
-            show-password
-        ></el-input
-        >
+        <el-input v-model="registerPassword" placeholder="请输入密码" show-password/>
       </el-col>
     </el-row>
     <br/>
     <el-row type="flex" align="middle">
       <el-col :span="4"><span>确认密码：</span></el-col>
       <el-col :span="20">
-        <el-input
-            v-model="registerPassword2"
-            placeholder="请输入密码"
-            show-password
-        ></el-input
-        >
+        <el-input v-model="registerPassword2" placeholder="请输入密码" show-password/>
       </el-col>
     </el-row>
     <template #footer>
@@ -34,36 +24,21 @@
     <el-row type="flex" align="middle">
       <el-col :span="4"><span>原密码：</span></el-col>
       <el-col :span="20">
-        <el-input
-            v-model="oldPassword"
-            placeholder="请输入密码"
-            show-password
-        ></el-input
-        >
+        <el-input v-model="oldPassword" placeholder="请输入密码" show-password></el-input>
       </el-col>
     </el-row>
     <br/>
     <el-row type="flex" align="middle">
       <el-col :span="4"><span>新密码：</span></el-col>
       <el-col :span="20">
-        <el-input
-            v-model="newPassword"
-            placeholder="请输入密码"
-            show-password
-        ></el-input
-        >
+        <el-input v-model="newPassword" placeholder="请输入密码" show-password></el-input>
       </el-col>
     </el-row>
     <br/>
     <el-row type="flex" align="middle">
       <el-col :span="4"><span>确认密码：</span></el-col>
       <el-col :span="20">
-        <el-input
-            v-model="newPassword2"
-            placeholder="请输入密码"
-            show-password
-        ></el-input
-        >
+        <el-input v-model="newPassword2" placeholder="请输入密码" show-password></el-input>
       </el-col>
     </el-row>
     <template #footer>
@@ -77,35 +52,19 @@
     <div>
       <el-row type="flex" align="middle" class="password_border">
         <el-col :span="4"><span>密码：</span></el-col>
-        <el-col :span="20"
-        >
-          <el-input
-              v-model="password"
-              placeholder="请输入密码"
-              show-password
-          ></el-input
-          >
+        <el-col :span="20">
+          <el-input v-model="password" placeholder="请输入密码" show-password></el-input>
         </el-col>
       </el-row>
     </div>
     <div class="button_border"></div>
     <el-row :gutter="20">
-      <el-col :span="12"
-      >
+      <el-col :span="12">
         <el-button type="success" class="btn_login">登录</el-button>
-      </el-col
-      >
-      <el-col :span="12"
-      >
-        <el-button
-            type="warning"
-            class="btn_set_password"
-            v-on:click="setPassword"
-        >设置/修改密码
-        </el-button
-        >
-      </el-col
-      >
+      </el-col>
+      <el-col :span="12">
+        <el-button type="warning" class="btn_set_password" v-on:click="setPassword">设置/修改密码</el-button>
+      </el-col>
     </el-row>
   </div>
 </template>

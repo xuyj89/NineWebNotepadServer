@@ -5,6 +5,7 @@ package top.muyan.ninewebnotepad.model;
  */
 public class Result<T> {
     public static final int CODE_NOMAL_ERROR = 1;
+    public static final int CODE_TOKEN_ERROR = 2;
 
     private int code;
     private T data;
