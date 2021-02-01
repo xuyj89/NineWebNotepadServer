@@ -1,2 +1,4 @@
-/NineWebNotepadWeb/.idea
-/NineWebNotepadServer/target
+/.gradle/
+/.idea/
+/build/
+/gradle/
