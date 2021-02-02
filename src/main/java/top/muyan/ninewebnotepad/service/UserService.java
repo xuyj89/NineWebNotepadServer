@@ -39,15 +39,13 @@ public class UserService {
         user.setUpdateTime(System.currentTimeMillis());
         userMapper.add(user);
 
-        result.setData(user.getToken());
-
         return result;
     }
 
     public Result<String> login(String password){
         Result<String> result = new Result<>();
         List<User> userList = userMapper.listByPassword(password);
-        if(userList.size()>0){
+        if(userList.size()==0){
             throw new MyException("未注册或密码错误，请重试");
         }
         User user = userList.get(0);

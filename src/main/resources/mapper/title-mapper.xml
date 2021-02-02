@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="top.muyan.ninewebnotepad.mapper.TitleMapper">
-    <select id="list" resultType="top.muyan.ninewebnotepad.model.db.Title">
+    <select id="listByNoteBookId" resultType="top.muyan.ninewebnotepad.model.db.Title">
         select * from title where note_book_id=#{noteBookId};
     </select>
 
