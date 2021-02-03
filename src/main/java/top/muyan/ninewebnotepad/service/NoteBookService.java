@@ -63,6 +63,9 @@ public class NoteBookService {
         tokenUtils.verifyToken(token);
 
         noteBookMapper.delete(id);
+
+
+
         return result;
     }
 }

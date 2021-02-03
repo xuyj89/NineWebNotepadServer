@@ -10,4 +10,5 @@ public interface TitleMapper {
     public void update(@Param("title")Title title);
     public void delete(@Param("id")String id);
     public List<Title> listByNoteBookId(@Param("noteBookId")String noteBookId);
+    public void batchDelete(@Param("idList")List<String> idList);
 }
